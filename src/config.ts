@@ -1,5 +1,6 @@
 import straw from "./static/images/straw/straw.png";
 import wall from "./static/images/wall/wall.gif";
+import water from "./static/images/water/water.gif"
 export default {
   canvas: {
     width: 900,
@@ -10,13 +11,17 @@ export default {
     height: 30,
   },
   straw: {
-    num:30
+    num: 60
   },
   wall: {
-    num:30
+    num: 30
+  },
+  water: {
+    num: 30
   },
   images: {
     straw,
-    wall
+    wall,
+    water
   },
 };

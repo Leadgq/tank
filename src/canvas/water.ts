@@ -1,14 +1,14 @@
 import canvasAbstract from "./canvasAbstract";
 import config from "../config";
-import model from "../model/wall"
+import model from "../model/water"
 
-class wall extends canvasAbstract {
+class water extends canvasAbstract {
     constructor() {
         super();
-        super.createModels(config.wall.num, model);
+        super.createModels(config.water.num, model);
     }
     render(): void {
         super.renderModels();
     }
 }
-export default new wall();
+export default new water();
