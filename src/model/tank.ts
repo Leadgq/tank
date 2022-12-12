@@ -1,12 +1,24 @@
+import _ from "lodash"
 import modelAbstract from "./modelAbstract";
-import {imageMap} from "../service/image";
+import {imageMap, mapKey} from "../service/image";
+import {directionEnum} from "../directionEnum/directionEnum"
+
 
 export default class tank extends modelAbstract implements IModel {
+    protected direction: directionEnum = directionEnum.top
+
     render(): void {
-        this.randomImg();
+        this.randomDirection();
+        super.draw(this.randomImg());
+    }
+
+    // 随机方向
+    randomDirection() {
+        this.direction = Object.keys(directionEnum)[Math.floor(Math.random() * 4)] as directionEnum;
     }
 
     randomImg() {
-        super.draw(imageMap.get("tank")!);
+        const direction = 'tank' + _.upperFirst(this.direction) as mapKey;
+        return imageMap.get(direction)!
     }
 }

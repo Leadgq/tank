@@ -1,6 +1,6 @@
 import config from "../config";
 
-type mapKey = keyof typeof config.images;
+ export type mapKey = keyof typeof config.images;
 // 图片容器
 export let imageMap = new Map<mapKey, HTMLImageElement>();
 //加载资源
