@@ -1,5 +1,5 @@
 import straw from "./static/images/straw/straw.png";
-import tankBottom from "./static/images/tank/bottom.gif";
+import wall from "./static/images/wall/wall.gif";
 export default {
   canvas: {
     width: 900,
@@ -12,8 +12,11 @@ export default {
   straw: {
     num:30
   },
+  wall: {
+    num:30
+  },
   images: {
     straw,
-    tank: tankBottom,
+    wall
   },
 };

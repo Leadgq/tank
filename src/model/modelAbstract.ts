@@ -1,5 +1,5 @@
 import config from "../config";
-import { imageMap } from "../service/image";
+
 
 export default abstract class modelAbstract {
   abstract render(): void;
@@ -9,9 +9,9 @@ export default abstract class modelAbstract {
     protected y: number
   ) {}
 
-  protected draw() {
+  protected draw(img:HTMLImageElement) {
     this.canvas.drawImage(
-      imageMap.get("straw")!,
+      img,
       this.x,
       this.y,
       config.model.width,
