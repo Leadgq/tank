@@ -1,7 +1,7 @@
 import config from "../config";
-import position from "../service/postion";
+import position from "../service/position";
 export default abstract class canvasAbstract {
-  protected items = [];
+  protected models:IModel[] = [];
   abstract render(): void;
   constructor(
     protected app = document.querySelector("#app")! as HTMLDivElement,
@@ -11,16 +11,22 @@ export default abstract class canvasAbstract {
     this.createCanvas();
   }
 
+  // 创建画布
   protected createCanvas() {
     this.el.width = config.canvas.width;
     this.el.height = config.canvas.height;
     this.app.insertAdjacentElement("afterbegin", this.el);
   }
 
+  // 创建模型==> 模型创建只有一次
   protected createModels(num: number, model: modelConstructor) {
     position.getCollection(num).forEach((position) => {
       const instance = new model(this.canvas, position.x, position.y);
-      instance.render();
+      this.models.push(instance)
     });
+  }
+  // 渲染模型
+  protected renderModels() { 
+    this.models.forEach(model => model.render());
   }
 }
