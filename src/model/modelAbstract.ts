@@ -1,21 +1,35 @@
 import config from "../config";
+import {directionEnum} from "../directionEnum/directionEnum";
 
 
 export default abstract class modelAbstract {
-  abstract render(): void;
-  constructor(
-    protected canvas: CanvasRenderingContext2D,
-    protected x: number,
-    protected y: number
-  ) {}
+    abstract render(): void;
 
-  protected draw(img:HTMLImageElement) {
-    this.canvas.drawImage(
-      img,
-      this.x,
-      this.y,
-      config.model.width,
-      config.model.height
-    );
-  }
+    abstract image(): HTMLImageElement;
+
+    protected direction: directionEnum = directionEnum.top
+
+    constructor(
+        public canvas: CanvasRenderingContext2D,
+        public x: number,
+        public y: number
+    ) {
+        this.randomDirection();
+    }
+
+
+    // 随机方向
+    randomDirection() {
+        this.direction = Object.keys(directionEnum)[Math.floor(Math.random() * 4)] as directionEnum;
+    }
+
+    protected draw() {
+        this.canvas.drawImage(
+            this.image(),
+            this.x,
+            this.y,
+            config.model.width,
+            config.model.height
+        );
+    }
 }

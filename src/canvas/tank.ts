@@ -15,7 +15,17 @@ class tank extends canvasAbstract {
 
     render(): void {
         this.createModels();
-        super.renderModels();
+        this.renderModels();
+        setInterval(() => this.renderModels(), 100)
+    }
+
+    // 渲染模型
+    protected renderModels() {
+        this.canvas.clearRect(0, 0, config.model.width, config.model.height);
+        this.models.forEach(model => {
+            model.render();
+            this.canvas.drawImage(model.image(), model.x, model.y, config.model.width, config.model.height)
+        });
     }
 
     // 创建坦克模型
