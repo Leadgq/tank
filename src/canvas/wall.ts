@@ -3,12 +3,20 @@ import config from "../config";
 import model from "../model/wall"
 
 class wall extends canvasAbstract {
-    constructor() {
-        super();
-        super.createModels(config.wall.num, model);
+
+    model(): modelConstructor {
+        return model;
     }
+
+    num(): number {
+        return config.wall.num;
+    }
+
     render(): void {
+        super.createModels();
         super.renderModels();
     }
+
 }
+
 export default new wall();

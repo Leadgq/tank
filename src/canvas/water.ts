@@ -3,12 +3,19 @@ import config from "../config";
 import model from "../model/water"
 
 class water extends canvasAbstract {
-    constructor() {
-        super();
-        super.createModels(config.water.num, model);
+
+    model(): modelConstructor {
+        return model;
     }
+
+    num(): number {
+        return config.water.num;
+    }
+
     render(): void {
+        super.createModels();
         super.renderModels();
     }
 }
+
 export default new water();
