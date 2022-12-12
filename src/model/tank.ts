@@ -2,7 +2,6 @@ import _ from "lodash"
 import modelAbstract from "./modelAbstract";
 import {imageMap, mapKey} from "../service/image";
 import {directionEnum} from "../directionEnum/directionEnum"
-import config from "../config";
 
 export default class tank extends modelAbstract implements IModel {
     render(): void {
@@ -11,7 +10,6 @@ export default class tank extends modelAbstract implements IModel {
 
     // 移动
     move() {
-        this.canvas.clearRect(this.x, this.y, config.model.width, config.model.height)
         switch (this.direction) {
             case  directionEnum.top:
                 this.y -= 2;
