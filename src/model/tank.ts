@@ -5,6 +5,7 @@ import {directionEnum} from "../directionEnum/directionEnum"
 
 export default class tank extends modelAbstract implements IModel {
     render(): void {
+        super.draw();
         this.move();
     }
 
@@ -12,16 +13,16 @@ export default class tank extends modelAbstract implements IModel {
     move() {
         switch (this.direction) {
             case  directionEnum.top:
-                this.y -= 2;
+                this.y--;
                 break;
             case  directionEnum.right:
-                this.x += 2;
+                this.x++;
                 break;
             case  directionEnum.bottom:
-                this.y += 2;
+                this.y++;
                 break;
             case  directionEnum.left:
-                this.x -= 2;
+                this.x--;
                 break
         }
     }

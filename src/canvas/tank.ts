@@ -15,17 +15,14 @@ class tank extends canvasAbstract {
 
     render(): void {
         this.createModels();
-        this.renderModels();
-        setInterval(() => this.renderModels(), 100)
+        this.clearSelfModel();
+        setInterval(() => this.clearSelfModel(), config.timeOut)
     }
 
-    // 渲染模型
-    protected renderModels() {
+    // 清空坦克模型
+    protected clearSelfModel() {
         this.canvas.clearRect(0, 0, config.canvas.width, config.canvas.height);
-        this.models.forEach(model => {
-            this.canvas.drawImage(model.image(), model.x, model.y, config.model.width, config.model.height)
-            model.render();
-        });
+        super.renderModels();
     }
 
     // 创建坦克模型

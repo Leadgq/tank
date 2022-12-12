@@ -1,4 +1,5 @@
 import {directionEnum} from "../directionEnum/directionEnum";
+import config from "../config";
 
 
 export default abstract class modelAbstract {
@@ -19,5 +20,15 @@ export default abstract class modelAbstract {
     // 随机方向
     randomDirection() {
         this.direction = Object.keys(directionEnum)[Math.floor(Math.random() * 4)] as directionEnum;
+    }
+
+    draw() {
+        this.canvas.drawImage(
+            this.image(),
+            this.x,
+            this.y,
+            config.model.width,
+            config.model.height
+        );
     }
 }
