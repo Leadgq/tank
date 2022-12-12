@@ -11,11 +11,7 @@ export default abstract class modelAbstract {
     protected width = config.canvas.width;
     protected height = config.canvas.height;
 
-    constructor(
-        public canvas: CanvasRenderingContext2D,
-        public x: number,
-        public y: number
-    ) {
+    constructor(public canvas: CanvasRenderingContext2D, public x: number, public y: number) {
         this.randomDirection();
     }
 
