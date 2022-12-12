@@ -21,7 +21,7 @@ class position {
     return positions;
   }
   // 返回随机坐标
-  protected position() {
+  public position() {
     return {
       x:
         Math.floor((Math.random() * config.canvas.width) / config.model.width) *
