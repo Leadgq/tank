@@ -7,7 +7,9 @@ export default abstract class modelAbstract {
 
     abstract image(): HTMLImageElement;
 
-    protected direction: directionEnum = directionEnum.top
+    protected direction: directionEnum = directionEnum.top;
+    protected width = config.canvas.width;
+    protected height = config.canvas.height;
 
     constructor(
         public canvas: CanvasRenderingContext2D,
