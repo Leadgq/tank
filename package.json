@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@types/lodash": "^4.14.191",
-    "loadsh": "^0.0.4",
+    "lodash": "^4.17.21",
     "sass": "^1.56.2"
   }
 }
