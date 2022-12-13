@@ -8,5 +8,7 @@ interface IModel {
     render(): void;
     image(): HTMLImageElement;
     x: number;
-    y: number
+    y: number;
+    width : number;
+    height : number
 }

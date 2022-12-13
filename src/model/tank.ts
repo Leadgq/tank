@@ -3,6 +3,9 @@ import modelAbstract from "./modelAbstract";
 import {imageMap, mapKey} from "../service/image";
 import {directionEnum} from "../directionEnum/directionEnum"
 import config from "../config";
+import water from "../canvas/water";
+import steel from "../canvas/steel";
+import wall from "../canvas/wall";
 
 export default class tank extends modelAbstract implements IModel {
     render(): void {
@@ -28,7 +31,7 @@ export default class tank extends modelAbstract implements IModel {
                     x--;
                     break
             }
-            if (this.isTouch(x, y)) {
+            if (this.isCanvasTouch(x, y)) {
                 this.randomDirection();
             } else {
                 this.x = x;
@@ -40,9 +43,21 @@ export default class tank extends modelAbstract implements IModel {
     }
 
     // 检测是否碰到画布
-    protected isTouch(x: number, y: number): boolean {
-        return x < 0 || x + config.model.width > this.width || y < 0 || y + config.model.height > this.height;
+    protected isCanvasTouch(x: number, y: number): boolean {
+        if (x < 0 || x + config.model.width > this.width || y < 0 || y + config.model.height > this.height) {
+            return true;
+        }
+        const models = [...water.models, ...steel.models, ...wall.models];
+        return models.some((model) => {
+            const state =
+                x + config.model.width <= model.x ||
+                x >= model.x + config.model.width ||
+                y + config.model.height <= model.y ||
+                y >= config.model.height + model.y
+            return !state
+        })
     }
+
 
     image() {
         const direction = 'tank' + _.upperFirst(this.direction) as mapKey;

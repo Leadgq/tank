@@ -8,8 +8,10 @@ export default abstract class modelAbstract {
     abstract image(): HTMLImageElement;
 
     protected direction: directionEnum = directionEnum.top;
-    protected width = config.canvas.width;
-    protected height = config.canvas.height;
+    public width = config.canvas.width;
+    public height = config.canvas.height;
+
+
 
     constructor(public canvas: CanvasRenderingContext2D, public x: number, public y: number) {
         this.randomDirection();
