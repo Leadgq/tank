@@ -8,10 +8,19 @@ import steel from "../canvas/steel";
 import wall from "../canvas/wall";
 import tank from "../canvas/tank";
 
-export default class  extends modelAbstract implements IModel {
-    canvas: ICanvas =  tank;
+export default class extends modelAbstract implements IModel {
+    canvas: ICanvas = tank;
+
     render(): void {
         this.tankMove();
+        this.addRandomRate();
+    }
+
+    // 增加概率
+    addRandomRate() {
+        if (Math.floor(Math.random() * 5) === 1) {
+            this.direction = directionEnum.bottom
+        }
     }
 
     // 移动

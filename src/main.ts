@@ -6,6 +6,7 @@ import wall from "./canvas/wall"
 import water from "./canvas/water";
 import steel from "./canvas/steel";
 import tank from "./canvas/tank";
+import bullet from "./canvas/bullet";
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
 app.style.width = config.canvas.width + "px";
@@ -24,5 +25,7 @@ const bootStrap = async () => {
     steel.render();
     // 渲染坦克
     tank.render();
+    // 渲染子弹
+    bullet.render();
 };
 void bootStrap();
