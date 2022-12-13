@@ -14,5 +14,5 @@ export default new (class extends canvasAbstract implements ICanvas {
         super.createModels();
         super.renderModels();
     }
-})
+})('bullet')
 

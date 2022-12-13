@@ -2,7 +2,7 @@ import config from "../config";
 import position from "../service/position";
 
 export default abstract class canvasAbstract {
-     public models: IModel[] = [];
+    public models: IModel[] = [];
 
     abstract num(): number;
 
@@ -11,6 +11,7 @@ export default abstract class canvasAbstract {
     abstract render(): void;
 
     constructor(
+        protected name: string,
         protected app = document.querySelector("#app")! as HTMLDivElement,
         protected el = document.createElement("canvas"),
         public ctx = el.getContext("2d")!
@@ -22,6 +23,7 @@ export default abstract class canvasAbstract {
     protected createCanvas() {
         this.el.width = config.canvas.width;
         this.el.height = config.canvas.height;
+        this.el.setAttribute("name", this.name);
         this.app.insertAdjacentElement("afterbegin", this.el);
     }
 
