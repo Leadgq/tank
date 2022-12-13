@@ -2,7 +2,7 @@ import canvasAbstract from "./canvasAbstract";
 import config from "../config";
 import model from "../model/wall"
 
-class wall extends canvasAbstract {
+class wall extends canvasAbstract implements  ICanvas {
 
     model(): modelConstructor {
         return model;

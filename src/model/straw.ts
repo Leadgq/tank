@@ -1,7 +1,10 @@
 import modelAbstract from "./modelAbstract";
-import { imageMap } from "../service/image";
+import {imageMap} from "../service/image";
+import straw from "../canvas/straw"
 
-export default class straw extends modelAbstract implements IModel {
+export default class extends modelAbstract implements IModel {
+    canvas: ICanvas = straw;
+
     render(): void {
         super.draw();
     }

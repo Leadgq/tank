@@ -4,7 +4,7 @@ import model from "../model/tank"
 import position from "../service/position";
 
 
-class tank extends canvasAbstract {
+class tank extends canvasAbstract implements ICanvas {
     model(): modelConstructor {
         return model;
     }
@@ -21,7 +21,7 @@ class tank extends canvasAbstract {
 
     // 清空坦克模型
     protected clearSelfModel() {
-        this.canvas.clearRect(0, 0, config.canvas.width, config.canvas.height);
+        this.ctx.clearRect(0, 0, config.canvas.width, config.canvas.height);
         super.renderModels();
     }
 
@@ -30,7 +30,7 @@ class tank extends canvasAbstract {
         for (let i = 0; i < this.num(); i++) {
             const {x} = position.position();
             const models = this.model();
-            const instance = new models(this.canvas, x, 0);
+            const instance = new models(x, 0);
             this.models.push(instance)
         }
     }

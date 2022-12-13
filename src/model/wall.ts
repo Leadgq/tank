@@ -1,7 +1,9 @@
 import modelAbstract from "./modelAbstract";
 import {imageMap} from "../service/image";
+import wall from "../canvas/wall";
 
-export default class wall extends modelAbstract implements IModel {
+export default class  extends modelAbstract implements IModel {
+    canvas: ICanvas = wall;
     render(): void {
         super.draw();
     }

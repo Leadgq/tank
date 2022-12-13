@@ -1,7 +1,10 @@
 import modelAbstract from "./modelAbstract";
 import {imageMap} from "../service/image";
+import steel from "../canvas/steel";
 
-export default class steel extends modelAbstract implements IModel {
+export default class extends modelAbstract implements IModel {
+    canvas: ICanvas = steel;
+
     render(): void {
         super.draw();
     }

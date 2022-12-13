@@ -7,13 +7,13 @@ export default abstract class modelAbstract {
 
     abstract image(): HTMLImageElement;
 
+    abstract canvas: ICanvas;
     protected direction: directionEnum = directionEnum.top;
     public width = config.canvas.width;
     public height = config.canvas.height;
 
 
-
-    constructor(public canvas: CanvasRenderingContext2D, public x: number, public y: number) {
+    constructor(public x: number, public y: number) {
         this.randomDirection();
     }
 
@@ -23,7 +23,7 @@ export default abstract class modelAbstract {
     }
 
     draw() {
-        this.canvas.drawImage(
+        this.canvas.ctx.drawImage(
             this.image(),
             this.x,
             this.y,
