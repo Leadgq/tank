@@ -18,9 +18,7 @@ export default class extends modelAbstract implements IModel {
 
     // 增加概率
     addRandomRate() {
-        if (Math.floor(Math.random() * 5) === 1) {
-            this.direction = directionEnum.bottom
-        }
+        if (Math.floor(Math.random() * 5) === 1) this.direction = directionEnum.bottom
     }
 
     // 移动
