@@ -12,3 +12,9 @@ interface IModel {
     width : number;
     height : number
 }
+
+interface  ICanvas{
+    model(): modelConstructor
+    num():number
+    ctx: CanvasRenderingContext2D
+}
