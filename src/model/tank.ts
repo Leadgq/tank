@@ -9,7 +9,9 @@ import wall from "../canvas/wall";
 import tank from "../canvas/tank";
 
 export default class extends modelAbstract implements IModel {
+    name: string = 'tank';
     canvas: ICanvas = tank;
+
 
     render(): void {
         this.tankMove();

@@ -4,6 +4,7 @@ import water from "../canvas/water";
 
 export default class extends modelAbstract implements IModel {
     canvas: ICanvas = water;
+    name: string = 'water';
 
     render(): void {
         super.draw();

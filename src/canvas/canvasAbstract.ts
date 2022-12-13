@@ -6,7 +6,7 @@ export default abstract class canvasAbstract {
 
     abstract num(): number;
 
-    abstract model(): modelConstructor;
+    abstract model(): modelConstructor | BulletConstructor;
 
     abstract render(): void;
 
@@ -30,7 +30,7 @@ export default abstract class canvasAbstract {
     // 创建模型==> 模型创建只有一次
     protected createModels() {
         position.getCollection(this.num()).forEach((position) => {
-            const models = this.model();
+            const models = this.model() as modelConstructor;
             const instance = new models(position.x, position.y);
             this.models.push(instance)
         });

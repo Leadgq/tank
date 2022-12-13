@@ -4,6 +4,7 @@ import steel from "../canvas/steel";
 
 export default class extends modelAbstract implements IModel {
     canvas: ICanvas = steel;
+    name: string = 'steel';
 
     render(): void {
         super.draw();
