@@ -6,7 +6,8 @@ import tankTop from "./static/images/tank/top.gif"
 import tankRight from "./static/images/tank/right.gif"
 import tankBottom from "./static/images/tank/bottom.gif"
 import tankLeft from "./static/images/tank/left.gif"
-import  bullet  from  "./static/images/bullet/bullet.jpg"
+import bullet from "./static/images/bullet/bullet.jpg"
+import boss from "./static/images/boss/boss.png"
 
 export default {
     timeOut: 50,
@@ -42,6 +43,7 @@ export default {
         tankRight,
         tankBottom,
         tankLeft,
-        bullet
+        bullet,
+        boss
     },
 };
