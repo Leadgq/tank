@@ -6,6 +6,7 @@ import {directionEnum} from "../directionEnum/directionEnum";
 import util from "../util";
 import wall from "../canvas/wall";
 import steel from "../canvas/steel";
+import boss from "../canvas/boss";
 
 export default class extends modelAbstract implements IModel {
     canvas: ICanvas = bullet;
@@ -34,7 +35,7 @@ export default class extends modelAbstract implements IModel {
                 break;
         }
         // 触碰特殊物体
-        let TouchModel = util.isModelTouch(x, y, [...wall.models, ...steel.models], 2, 2)
+        let TouchModel = util.isModelTouch(x, y, [...wall.models, ...steel.models,...boss.models], 2, 2)
         // 是否触碰画布
         if (util.isCanvasTouch(x, y, 2, 2)) {
             this.destroy();

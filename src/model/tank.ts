@@ -7,6 +7,7 @@ import util from "../util";
 import wall from "../canvas/wall";
 import water from "../canvas/water";
 import steel from "../canvas/steel";
+import boss from "../canvas/boss";
 
 export default class extends modelAbstract implements IModel {
     name: string = 'tank';
@@ -42,7 +43,7 @@ export default class extends modelAbstract implements IModel {
                     x--;
                     break
             }
-            if (util.isModelTouch(x, y, [...wall.models, ...water.models, ...steel.models]) || util.isCanvasTouch(x, y)) {
+            if (util.isModelTouch(x, y, [...wall.models, ...water.models, ...steel.models,...boss.models]) || util.isCanvasTouch(x, y)) {
                 this.randomDirection();
             } else {
                 this.x = x;
