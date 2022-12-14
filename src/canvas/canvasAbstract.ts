@@ -38,6 +38,7 @@ export default abstract class canvasAbstract {
 
     // 渲染模型
     protected renderModels() {
+        this.ctx.clearRect(0, 0, config.canvas.width, config.canvas.height);
         this.models.forEach(model => model.render());
     }
 }

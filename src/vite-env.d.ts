@@ -13,6 +13,7 @@ interface IModel {
     render(): void;
     image(): HTMLImageElement;
     tank?: IModel;
+    direction: string;
     x: number;
     y: number;
     width: number;

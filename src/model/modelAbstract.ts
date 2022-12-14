@@ -8,7 +8,7 @@ export default abstract class modelAbstract {
     abstract image(): HTMLImageElement;
 
     abstract canvas: ICanvas;
-    protected direction: directionEnum = directionEnum.top;
+    public direction: directionEnum = directionEnum.top;
     public width = config.canvas.width;
     public height = config.canvas.height;
 
