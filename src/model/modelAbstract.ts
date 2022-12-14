@@ -3,6 +3,8 @@ import config from "../config";
 
 
 export default abstract class modelAbstract {
+    name = 'modelAbstract';
+
     abstract render(): void;
 
     abstract image(): HTMLImageElement;
@@ -15,6 +17,10 @@ export default abstract class modelAbstract {
 
     constructor(public x: number, public y: number) {
         this.randomDirection();
+    }
+
+    protected destroy() {
+        this.canvas.removeModel(this);
     }
 
     // 随机方向

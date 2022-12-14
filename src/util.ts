@@ -4,6 +4,14 @@ import steel from "./canvas/steel";
 import wall from "./canvas/wall";
 
 export default {
+    isCanvasTouch(
+        x: number,
+        y: number,
+        width = config.model.width,
+        height = config.model.height,
+    ) {
+        return x < 0 || x + width > config.canvas.width || y < 0 || y + height > config.canvas.height
+    },
     isModelTouch(
         x: number,
         y: number,

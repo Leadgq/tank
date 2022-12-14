@@ -3,6 +3,7 @@ import {imageMap} from "../service/image";
 import bullet from "../canvas/bullet";
 import config from "../config";
 import {directionEnum} from "../directionEnum/directionEnum";
+import util from "../util";
 
 export default class extends modelAbstract implements IModel {
     canvas: ICanvas = bullet;
@@ -30,9 +31,13 @@ export default class extends modelAbstract implements IModel {
                 x -= 2;
                 break;
         }
-        this.x = x;
-        this.y = y;
-        this.draw();
+        if (util.isCanvasTouch(x, y, 2, 2)) {
+            this.destroy();
+        } else {
+            this.x = x;
+            this.y = y;
+            this.draw();
+        }
     }
 
 

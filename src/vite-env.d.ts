@@ -18,11 +18,12 @@ interface IModel {
     y: number;
     width: number;
     height: number;
-    name:string
+    name:string;
 }
 
 interface ICanvas {
     model(): modelConstructor | BulletConstructor
     num(): number
-    ctx: CanvasRenderingContext2D
+    ctx: CanvasRenderingContext2D;
+    removeModel(model:IModel):void
 }
