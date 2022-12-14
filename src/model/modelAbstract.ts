@@ -19,8 +19,9 @@ export default abstract class modelAbstract {
         this.randomDirection();
     }
 
-    protected destroy() {
+    public destroy() {
         this.canvas.removeModel(this);
+        this.canvas.renderModels();
     }
 
     // 随机方向

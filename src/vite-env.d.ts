@@ -19,6 +19,7 @@ interface IModel {
     width: number;
     height: number;
     name:string;
+    destroy():void
 }
 
 interface ICanvas {
@@ -26,4 +27,5 @@ interface ICanvas {
     num(): number
     ctx: CanvasRenderingContext2D;
     removeModel(model:IModel):void
+    renderModels():void;
 }

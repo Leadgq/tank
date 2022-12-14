@@ -15,7 +15,7 @@ export default new (class extends canvasAbstract implements ICanvas {
         setInterval(() => {
             this.createBullet();
             super.renderModels();
-        }, 100);
+        }, 50);
     }
 
     createBullet() {

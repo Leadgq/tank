@@ -4,6 +4,9 @@ import {imageMap, mapKey} from "../service/image";
 import {directionEnum} from "../directionEnum/directionEnum"
 import tank from "../canvas/tank";
 import util from "../util";
+import wall from "../canvas/wall";
+import water from "../canvas/water";
+import steel from "../canvas/steel";
 
 export default class extends modelAbstract implements IModel {
     name: string = 'tank';
@@ -39,7 +42,7 @@ export default class extends modelAbstract implements IModel {
                     x--;
                     break
             }
-            if (util.isModelTouch(x, y)) {
+            if (util.isModelTouch(x, y, [...wall.models, ...water.models, ...steel.models]) || util.isCanvasTouch(x, y)) {
                 this.randomDirection();
             } else {
                 this.x = x;

@@ -4,6 +4,7 @@ import bullet from "../canvas/bullet";
 import config from "../config";
 import {directionEnum} from "../directionEnum/directionEnum";
 import util from "../util";
+import wall from "../canvas/wall";
 
 export default class extends modelAbstract implements IModel {
     canvas: ICanvas = bullet;
@@ -31,8 +32,12 @@ export default class extends modelAbstract implements IModel {
                 x -= 2;
                 break;
         }
+        let TouchModel = util.isModelTouch(x, y, [...wall.models], 2, 2)
         if (util.isCanvasTouch(x, y, 2, 2)) {
             this.destroy();
+        } else if (TouchModel) {
+            this.destroy();
+            TouchModel.destroy();
         } else {
             this.x = x;
             this.y = y;
