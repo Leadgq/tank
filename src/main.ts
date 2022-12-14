@@ -8,6 +8,7 @@ import steel from "./canvas/steel";
 import tank from "./canvas/tank";
 import bullet from "./canvas/bullet";
 import boss from  "./canvas/boss"
+import play from "./canvas/play";
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
 app.style.width = config.canvas.width + "px";
@@ -30,5 +31,7 @@ const bootStrap = async () => {
     bullet.render();
     // 渲染boss
     boss.render();
+    // 渲染玩家
+    play.render();
 };
 void bootStrap();
