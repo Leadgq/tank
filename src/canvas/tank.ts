@@ -4,8 +4,8 @@ import model from "../model/tank"
 import position from "../service/position";
 
 
-export default new (
-    class extends canvasAbstract implements ICanvas {
+export default new ( class extends canvasAbstract implements ICanvas {
+        interval :any = 0;
         model(): modelConstructor {
             return model;
         }
@@ -14,10 +14,14 @@ export default new (
             return config.tank.num;
         }
 
+        stop() { 
+            clearInterval(this.interval);
+        }
+
         render(): void {
             this.createModels();
             this.clearSelfModel();
-            setInterval(() => this.clearSelfModel(), config.timeOut)
+           this.interval = setInterval(() => this.clearSelfModel(), config.timeOut)
         }
 
         // 清空坦克模型

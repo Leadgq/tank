@@ -25,6 +25,7 @@ export default abstract class modelAbstract {
     }
     // 队列展示
     protected blasts(model: IModel) {
+      
         Array(...Array(8).keys()).reduce((promise, index) => {
             setTimeout(() => {
                 return new Promise((resolve) => {
