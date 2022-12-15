@@ -39,6 +39,23 @@ export default {
     clearInterval(this.intervalInstance);
     tank.stop();
     bullet.stop();
+    this.createEndText();
+  },
+  createEndText() {
+    const el = document.createElement("canvas");
+    el.width = config.canvas.width;
+    el.height = config.canvas.height;
+    const ctx = el.getContext("2d")!;
+    ctx.fillStyle = "red";
+    ctx.textAlign = "center";
+    ctx.font = "80px Georgia";
+    ctx.textBaseline = "middle";
+    ctx.fillText(
+      this.state === 1 ? "恭喜你" : "也是不行啊！老弟",
+      config.canvas.width / 2,
+      config.canvas.height / 2
+    );
+    app.appendChild(el);
   },
   async start() {
     if (this.isStart === true) return;

@@ -1,5 +1,6 @@
 import {directionEnum} from "../directionEnum/directionEnum";
 import config from "../config";
+import music from "../service/music";
 
 
 export default abstract class modelAbstract {
@@ -25,7 +26,7 @@ export default abstract class modelAbstract {
     }
     // 队列展示
     protected blasts(model: IModel) {
-      
+        music.blast();
         Array(...Array(8).keys()).reduce((promise, index) => {
             setTimeout(() => {
                 return new Promise((resolve) => {
