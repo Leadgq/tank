@@ -3,6 +3,7 @@ import model from "../model/bullet"
 import tank from "../canvas/tank";
 import play from "../canvas/play";
 import bullet from "../model/bullet";
+import music from "../service/music";
 
 export default new (class extends canvasAbstract implements ICanvas {
     interval :any = 0;
@@ -35,6 +36,7 @@ export default new (class extends canvasAbstract implements ICanvas {
     }
     addPlayBullet() { 
         this.models.push(new bullet(play.models[0]));
+        music.fire();
     }
 })('bullet')
 

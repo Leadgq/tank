@@ -9,6 +9,7 @@ import tank from "./canvas/tank";
 import bullet from "./canvas/bullet";
 import boss from "./canvas/boss";
 import play from "./canvas/play";
+import music from "./service/music";
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
 app.style.width = config.canvas.width + "px";
@@ -44,6 +45,7 @@ export default {
     this.isStart = true;
     app.style.backgroundImage = "none";
     app.style.cursor = "default";
+    music.start();
     // 加载贴图文件
     await Promise.all(loadServiceImage);
     // 渲染草地
