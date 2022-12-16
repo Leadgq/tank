@@ -58,7 +58,7 @@ export default {
     app.appendChild(el);
   },
   async start() {
-    if (this.isStart === true) return;
+    if (this.isStart) return;
     this.isStart = true;
     app.style.backgroundImage = "none";
     app.style.cursor = "default";
